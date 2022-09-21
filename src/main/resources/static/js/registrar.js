@@ -23,5 +23,6 @@ async function registrarUsuario() {
         },
         body: JSON.stringify(datos) //le pasamos los datos que ingresamos por formulario y lo transforma a JSON
       });
-      location.reload();
+      alert('Registrado correctamente')
+      window.location.href = 'login.html'
     }
