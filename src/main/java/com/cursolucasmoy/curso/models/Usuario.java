@@ -1,13 +1,11 @@
 package com.cursolucasmoy.curso.models;
 
-    import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+    import javax.persistence.*;
 
 @Entity
 @Table(name = "usuarios") //le decimos q use la tabla usuarios de la BD
 public class Usuario {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id @Column(name="id_usuarios")
     private Long id;
     @Column(name = "nombre")

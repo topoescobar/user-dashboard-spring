@@ -4,10 +4,7 @@ package com.cursolucasmoy.curso.controllers;
 import com.cursolucasmoy.curso.dao.UsuarioDao;
 import com.cursolucasmoy.curso.models.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +30,12 @@ public class UsuarioController {
     public List<Usuario> getUsuarios() {
         return usuarioDao.getUsuarios();
     }
+
+    @RequestMapping(value = "api/usuarios", method = RequestMethod.POST)
+    public void registrarUsuario(@RequestBody Usuario usuario) { //transforma el json recibido a un objetox
+        usuarioDao.registrar(usuario) ;
+    }
+
 
 
     @RequestMapping(value = "usuario1")

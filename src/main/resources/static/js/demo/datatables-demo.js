@@ -29,13 +29,18 @@ async function cargarUsuarios() {
     }//cargarUsuarios
 
 async function eliminarUsuario(id) {
+
+if (!confirm ('Se eliminará el usuario'+ id)) { //si le da en false entra en esta funcion y corta el resto
+    return;
+}
         const request = await fetch('api/usuarios/' + id, {
         method: 'DELETE',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'},
        });
-       alert("eliminado usuario de id: "+id);
+       alert("usuario "+id+" eliminado");
+       location.reload();
 }
 
 
